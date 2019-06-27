@@ -1,21 +1,26 @@
 import * as React from 'react';
-import { GoogleLogin } from 'react-google-login';
+import {Route, Router} from "react-router-dom";
+import history from './config/history';
+// import { GoogleLogin } from 'react-google-login';
 
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
 import { connect } from 'react-redux';
+
+import Login from "./views/Login";
+import Preview from "./views/Preview";
 
 interface Props {
     history: any;
 }
 
-class App extends React.Component<Props, any> {
+class App extends React.Component<Props> {
 
     render(): React.ReactNode {
         return(
-            <div>
-                <h1>Welcome to Leo's Playground</h1>
-            </div>
+            <Router history={history}>
+                <Route path={"/login"} component={Login}/>
+                <Route path={"/preview"} component={Preview}/>
+            </Router>
         )
     }
 }
