@@ -14,7 +14,7 @@ import store from "./config/store";
 import App from './App';
 
 import $ from "jquery";
-const enterprise = require("ag-grid-enterprise");
+// const enterprise = require("ag-grid-enterprise");
 
 declare var window: any;
 
@@ -51,7 +51,7 @@ toastr.options = {
     hideMethod: "fadeOut"
 };
 
-enterprise.LicenseManager.setLicenseKey("your license key");
+// enterprise.LicenseManager.setLicenseKey("your license key");
 
 ReactDOM.render(
     <Provider store={store}>
