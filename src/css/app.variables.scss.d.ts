@@ -5,9 +5,10 @@ export interface I_globalScss {
     text_yellow: string;
     heatmap_min_red: string;
     heatmap_max_green: string;
-    header_dark_blue: string
+    header_violet: string
     header_border_dark_blue: string;
     background_blue: string;
+    background_white: string;
     grids_header_dark: string;
     border_gray: string;
 }

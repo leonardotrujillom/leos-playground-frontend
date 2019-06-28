@@ -17,7 +17,7 @@ class Home extends React.Component<Props, State> {
     render(): React.ReactNode {
         return(
             <div>
-                <h1>Welcome to Leo's Playground</h1>
+                <h1 className="App-header">Welcome to Leo's Playground</h1>
                 <h2>This is your homepage!</h2>
             </div>
         )
