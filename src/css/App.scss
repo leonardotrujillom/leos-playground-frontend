@@ -1,0 +1,233 @@
+@import "app.variables";
+// @import "~compass-mixins/lib/compass/css3";
+
+body {
+  background-color: $app-background-blue;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: $app-header-dark-blue;
+  border: 2px solid $app-header-border-dark-blue;
+  height: 70px;
+  width: 100%;
+  color: $app-text-white;
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-footer {
+  position: fixed;
+  height: 30px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $app-background-blue;
+  color: $app-text-white;
+  text-align: center;
+}
+
+.qtip {
+  max-width: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .button-text {
+    display: none;
+  }
+
+  #home-items {
+    flex-direction: column;
+    display: block;
+  }
+
+  .home-item {
+    width: 95vw;
+  }
+
+  .home-report-grid {
+    width: 95vw;
+  }
+}
+
+.ag-grids {
+  width: calc(100% - 20px);
+}
+
+.workspace-buttons {
+  width: 100%;
+  border-radius: 45px;
+  background-color: $app-header-dark-blue;
+  color: $app-text-white;
+  border: 2px solid $app-header-border-dark-blue;
+  margin: 2px;
+  text-align: left;
+  outline: none;
+
+  &:hover {
+    color: #eaeaea;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #dae0e5;
+  }
+
+  &:hover .fa {
+    animation: fa-spin 2s infinite linear;
+  }
+}
+
+.slider {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  &:after {
+    content: 'NO';
+    color: #000;
+    position: absolute;
+    right: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, .15);
+  }
+
+  &:before {
+    content: 'YES';
+    color: $app-text-green;
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  label {
+    display: block;
+    width: 34px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+    background: #fcfff4;
+    //background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  input[type=checkbox] {
+    visibility: hidden;
+
+    &:checked + label {
+      left: 43px;
+    }
+  }
+}
+
+.dashboard-col {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 350px) {
+  .dashboard-col {
+    width: 50.00%;
+    float: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .dashboard-col {
+    width: 33.333333333%;
+    float: left;
+  }
+}
+
+@media (min-width: 1500px) {
+  .dashboard-col {
+    width: 11.111111111%;
+    float: left;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  #headerLeftSection {
+    display: block !important;
+  }
+
+  #headerUser {
+    float: right !important;
+  }
+
+  #headerButtons {
+    width: fit-content;
+    margin: auto;
+    float: none !important;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  .button-text {
+    display: inline-block;
+  }
+
+  #reporting-periods-search-input {
+    width: calc(100% - 870px);
+  }
+
+  #accounts-search-input {
+    width: calc(100% - 405px);
+  }
+
+  #home-items {
+    flex-direction: row;
+    display: inline-flex;
+  }
+
+  .home-item {
+    width: calc(33% - 5px);
+  }
+
+  .home-report-grid {
+    width: calc(100% - 50px);
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 1200px) {
+  #reporting-periods-search-input {
+    width: calc(100% - 395px);
+  }
+
+  #accounts-search-input {
+    width: calc(100% - 215px);
+  }
+}

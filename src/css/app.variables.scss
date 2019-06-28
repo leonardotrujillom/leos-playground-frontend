@@ -1,0 +1,26 @@
+$app-text-green: #52c77e;
+$app-text-blue: #53a0c0;
+$app-text-white: #dee2e6;
+$app-header-dark-blue: #1e323f;
+$app-header-border-dark-blue: #32546a;
+$app-background-blue: #093644;
+$heatmap-min-red: #ad0e12;
+$heatmap-max-green: #326f0c;
+$app-grids-header-dark: #1c1f20;
+$app-border-gray: #707070;
+$app-text-yellow: #fbf35e;
+
+
+:export {
+  text_green: $app-text-green;
+  text_blue: $app-text-blue;
+  text_white: $app-text-white;
+  heatmap_min_red: $heatmap-min-red;
+  heatmap_max_green: $heatmap-max-green;
+  header_dark_blue: $app-header-dark-blue;
+  header_border_dark_blue: $app-header-border-dark-blue;
+  background_blue: $app-background-blue;
+  grids_header_dark: $app-grids-header-dark;
+  border_gray: $app-border-gray;
+  text_yellow: $app-text-yellow;
+}
