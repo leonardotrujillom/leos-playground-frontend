@@ -1,10 +1,13 @@
 import * as React from "react";
 import {connect} from 'react-redux';
-// import { GoogleLogin } from "react-google-login";
+import { HashLoader } from "react-spinners"
+import { GoogleLogin } from "react-google-login";
 
 import Header from "../components/common/Header";
 import history from '../config/history';
 import variables from '../css/app.variables.scss';
+
+const FontAwesome = require("react-fontawesome");
 
 interface Props {
     pending: boolean;
@@ -36,7 +39,36 @@ class Login extends React.Component<Props, State> {
         history.push("/preview");
     };
 
+    onSignInHandler = () => {
+
+    };
+
+    googleSignInHandler = (response: any) => {
+        console.log(response);
+        this.props.googleSignIn(response.accessToken);
+    };
+
+    onKeyUpHandler = (e: any) => {
+        if (e.keyCode === 13) {
+            this.onSignInHandler();
+        }
+    };
+
     render(): React.ReactNode{
+        if (this.props.pending) {
+            return (
+                <div className='sweet-loading'
+                     style={{width: 20, top: "calc(50% - 50px)", left: "calc(50% - 50px)", position: "absolute"}}>
+                    <HashLoader
+                        sizeUnit={"px"}
+                        size={80}
+                        color={variables.text_blue}
+                        loading={this.props.pending}
+                    />
+                </div>
+            )
+        }
+
         return(
             <div>
                 <Header buttons={[{
@@ -52,10 +84,43 @@ class Login extends React.Component<Props, State> {
                     },
                     fe_awesomeClass: "sign-in"
                 }]}
-                title={{name: "Sign In and Sign Up", style: {fontSize: 25}}}
+                title={{name: "Sign In", style: {fontSize: 25}}}
                 />
-                <div className={"container-fluid"} style={{color: variables.text_blue}}>
-                    <span style={{fontSize: 25}}>This will be a login page...</span>
+                <div className={"container-fluid"}>
+                    <div className={"row"} style={{marginTop: 150}}>
+                        <div className={"col-12"} style={{textAlign: "center"}}>
+                            <div className={"login-box"} style={{width: 250, display: "inline-block", marginBottom: 50}}>
+                                <div className={"login-survey"} onKeyUp={this.onKeyUpHandler} style={{marginBottom: 25}}>
+                                    <input type={"text"} ref={this.emailRef} tabIndex={1}
+                                           style={{marginBottom: 10}}
+                                           placeholder={" Email Address"}
+                                    />
+                                    <input type={"password"} ref={this.passwordRef} tabIndex={2}
+                                           style={{marginTop: 10, marginBottom: 10}}
+                                           placeholder={" Password"}
+                                    />
+                                    <button onClick={this.onSignInHandler.bind(this)} tabIndex={3} 
+                                            style={{marginTop: 10}} className={"btn btn-primary"}>
+                                        <FontAwesome className="super-crazy-colors"
+                                                     name="sign-in"
+                                                     size="lg"
+                                        /> Sign In
+                                    </button>
+                                </div>
+                                <span className={"login-sep"}> or </span>
+                                <div className={"login-box-google"} style={{marginTop: 25, marginBottom: 25}}>
+                                    <GoogleLogin
+                                        clientId="106927662967-qb7ubv8bc90egoknv79br4m10s3841c9.apps.googleusercontent.com"
+                                        buttonText="Sign In with Google"
+                                        // uxMode='redirect'
+                                        // redirectUri="http://localhost:3000/home"
+                                        onSuccess={this.googleSignInHandler}
+                                        onFailure={this.googleSignInHandler}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
