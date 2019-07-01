@@ -32,7 +32,7 @@ export const googleSignIn = (accessToken: string) => {
     const authToken = accessToken;
     const config = {
         headers: {
-            'Authorization': authToken,
+            'Authorization': "Bearer " + authToken,
             'Content-Type': 'application/json'
         }
     };

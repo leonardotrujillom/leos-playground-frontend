@@ -16,9 +16,9 @@ interface State {
 }
 
 class Header extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-    }
+    // constructor(props: Props) {
+    //     super(props);
+    // }
 
     render() {
         const buttons = this.props.buttons.map((button, index) =>
@@ -57,7 +57,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
     return {
         user: state.auth.user,
         title: ownProps.title,
-        buttons: ownProps. buttons
+        buttons: ownProps.buttons
     }
 };
 

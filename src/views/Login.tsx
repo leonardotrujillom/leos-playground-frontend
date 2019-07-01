@@ -6,6 +6,7 @@ import { GoogleLogin } from "react-google-login";
 import Header from "../components/common/Header";
 import history from '../config/history';
 import variables from '../css/app.variables.scss';
+import { signIn, googleSignIn } from "../actions/authActions";
 
 const FontAwesome = require("react-fontawesome");
 
@@ -82,7 +83,7 @@ class Login extends React.Component<Props, State> {
                         height: 40,
                         border: `1px solid ${variables.border_gray}`
                     },
-                    fe_awesomeClass: "sign-in"
+                    fe_awesomeClass: "home"
                 }]}
                 title={{name: "Sign In", style: {fontSize: 25}}}
                 />
@@ -136,13 +137,13 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        // signIn: (username: string, password: string) => {
-        //     dispatch(signIn(username, password))
-        // },
+        signIn: (username: string, password: string) => {
+            dispatch(signIn(username, password))
+        },
 
-        // googleSignIn: (accessToken: string) => {
-        //     dispatch(googleSignIn(accessToken))
-        // }
+        googleSignIn: (accessToken: string) => {
+            dispatch(googleSignIn(accessToken))
+        }
     }
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
